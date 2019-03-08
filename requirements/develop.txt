@@ -1,0 +1,5 @@
+Django==2.0.12
+pkg-resources==0.0.0
+psycopg2==2.7.1
+pytz==2018.9
+Unipath==1.1
