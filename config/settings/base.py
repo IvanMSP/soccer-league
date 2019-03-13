@@ -46,7 +46,7 @@ THIRDY_APPS = [
 ]
 
 OWNER_APPS = [
-
+    'league',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRDY_APPS + OWNER_APPS
