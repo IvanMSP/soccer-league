@@ -19,6 +19,12 @@ class Referee(models.Model):
     stature = models.CharField(max_length=10, blank=True, null=True)
     weight = models.CharField(max_length=10, blank=True, null=True)
     nationality = models.CharField(max_length=25, blank=True, null=True)
+    picture = models.ImageField(
+        upload_to='referee/picture/',
+        max_length=1000,
+        blank=True, 
+        null=True
+    )
     sex = models.CharField(
         max_length=15,
         choices=SEX_CHOICES,
