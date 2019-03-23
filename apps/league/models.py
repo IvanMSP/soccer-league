@@ -16,7 +16,11 @@ class League(models.Model):
 
 
 class Directive(models.Model):
-    league_directive = models.OneToOneField(League, related_name='league_directive', on_delete=models.CASCADE)
+    league_directive = models.OneToOneField(
+        League, 
+        related_name='league_directive',
+        on_delete=models.CASCADE
+    )
     president = models.CharField(max_length=100)
 
     class Meta:
@@ -27,7 +31,11 @@ class Directive(models.Model):
 
         
 class Rules(models.Model):
-    league_rules = models.ForeignKey(League, blank=True, null=True, on_delete=models.CASCADE)
+    league_rules = models.ForeignKey(
+        League, 
+        blank=True, null=True, 
+        on_delete=models.CASCADE
+    )
     name = models.CharField(max_length=50, blank=True, null=True)
     file = models.FileField(upload_to='rules_file')
 
@@ -40,7 +48,11 @@ class Rules(models.Model):
 
 
 class Stadium(models.Model):
-    league_stadium = models.ForeignKey(League, blank=True, null=True, on_delete=models.CASCADE)
+    league_stadium = models.ForeignKey(
+        League, 
+        blank=True, null=True, 
+        on_delete=models.CASCADE
+    )
     name = models.CharField(max_length=120, blank=True, null=True)
     adress = models.CharField(max_length=120, blank=True, null=True)
     longitud = models.FloatField(blank=True, null=True, default=None)

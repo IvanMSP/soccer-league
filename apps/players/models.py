@@ -22,17 +22,28 @@ class Player(models.Model):
     nationality = models.CharField(max_length=25, blank=True, null=True)
     stature = models.CharField(max_length=10, blank=True, null=True)
     weight = models.CharField(max_length=10, blank=True, null=True)
+    number = models.IntegerField()
     sex = models.CharField(
         max_length=15,
         choices=SEX_CHOICES,
         default='Masculino'
     )
-    team_player = models.ForeignKey(Team, blank=True, null=True, on_delete=models.CASCADE)
-    number = models.IntegerField()
     postion = models.CharField(
         max_length=30,
         choices=PLAYER_POSTIONS_CHOINCES,
         default='Ninguna'
+    )
+    picture = models.ImageField(
+        upload_to='players/picture/',
+        max_length=1000,
+        blank=True, 
+        null=True
+    )
+    team_player = models.ForeignKey(
+        Team, 
+        related_name='jugadores',
+        blank=True, null=True, 
+        on_delete=models.CASCADE
     )
 
     class Meta:
