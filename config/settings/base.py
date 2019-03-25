@@ -46,11 +46,11 @@ THIRDY_APPS = [
 ]
 
 OWNER_APPS = [
-    'league',
-    'players',
-    'teams',
-    'referee',
-    'tournaments',
+    'league.apps.LeagueConfig',
+    'players.apps.PlayersConfig',
+    'teams.apps.TeamsConfig',
+    'referee.apps.RefereeConfig',
+    'tournaments.apps.TournamentsConfig',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRDY_APPS + OWNER_APPS
