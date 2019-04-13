@@ -51,9 +51,11 @@ OWNER_APPS = [
     'teams.apps.TeamsConfig',
     'referee.apps.RefereeConfig',
     'tournaments.apps.TournamentsConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRDY_APPS + OWNER_APPS
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
