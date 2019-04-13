@@ -5,6 +5,8 @@ from datetime import date
 from django.db import models
 from league.models import League
 
+#reusable apps
+from reusable.constants import *
 
 SEX_CHOICES = (
     ('femenino', 'Femenino'),
@@ -13,12 +15,12 @@ SEX_CHOICES = (
 
 
 class Referee(models.Model):
-    name = models.CharField(max_length=45, blank=True, null=True)
-    last_name = models.CharField(max_length=45, blank=True, null=True)
+    name = models.CharField(max_length=45, **NULL)
+    last_name = models.CharField(max_length=45, **NULL)
     dob = models.DateField()
-    stature = models.CharField(max_length=10, blank=True, null=True)
-    weight = models.CharField(max_length=10, blank=True, null=True)
-    nationality = models.CharField(max_length=25, blank=True, null=True)
+    stature = models.CharField(max_length=10, **NULL)
+    weight = models.CharField(max_length=10, **NULL)
+    nationality = models.CharField(max_length=25, **NULL)
     picture = models.ImageField(
         upload_to='referee/picture/',
         max_length=1000,
@@ -33,7 +35,7 @@ class Referee(models.Model):
     referee_league = models.ForeignKey(
         League, 
         related_name='arbitros',
-        blank=True, null=True, 
+        **NULL, 
         on_delete=models.CASCADE
     )
 

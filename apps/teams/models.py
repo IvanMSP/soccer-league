@@ -1,9 +1,11 @@
 from django.db import models
 from league.models import Stadium, League
+#reusable apps
+from reusable.constants import *
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=50, blank=True, null=True)
+    name = models.CharField(max_length=50, **NULL)
 
     class Meta:
         verbose_name = 'Categoria'
@@ -14,8 +16,8 @@ class Category(models.Model):
 
 
 class Team(models.Model):
-    name = models.CharField(max_length=100, blank=False, null=False)
-    fb_id = models.CharField(max_length=50, blank=True, null=True)
+    name = models.CharField(max_length=100, **REQUIRED)
+    fb_id = models.CharField(max_length=50, **NULL)
     picture = models.ImageField(
         upload_to='teams/picture/',
         max_length=1000,
@@ -25,19 +27,19 @@ class Team(models.Model):
     stadium_team = models.ForeignKey(
         Stadium,
         related_name='equipos_stadium',
-        blank=True, null=True,
+        **NULL,
         on_delete=models.CASCADE
     )
     league_team = models.ForeignKey(
         League,
         related_name='equipos_league',
-        blank=True, null=True,
+        **NULL,
         on_delete=models.CASCADE
     )
     category_team = models.ForeignKey(
         Category,
         related_name='equipos_categories',
-        blank=True, null=True,
+        **NULL,
         on_delete=models.CASCADE
     )
 

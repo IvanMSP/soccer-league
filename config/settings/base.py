@@ -52,6 +52,7 @@ OWNER_APPS = [
     'referee.apps.RefereeConfig',
     'tournaments.apps.TournamentsConfig',
     'accounts.apps.AccountsConfig',
+    'reusable.apps.ReusableConfig',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRDY_APPS + OWNER_APPS

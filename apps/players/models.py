@@ -1,5 +1,7 @@
 from django.db import models
 from teams.models import Team
+#reusable apps
+from reusable.constants import *
 
 
 PLAYER_POSTIONS_CHOINCES = (
@@ -19,9 +21,9 @@ class Player(models.Model):
     name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     dob = models.DateField()
-    nationality = models.CharField(max_length=25, blank=True, null=True)
-    stature = models.CharField(max_length=10, blank=True, null=True)
-    weight = models.CharField(max_length=10, blank=True, null=True)
+    nationality = models.CharField(max_length=25, **NULL)
+    stature = models.CharField(max_length=10, **NULL)
+    weight = models.CharField(max_length=10, **NULL)
     number = models.IntegerField()
     sex = models.CharField(
         max_length=15,
@@ -42,7 +44,7 @@ class Player(models.Model):
     team_player = models.ForeignKey(
         Team, 
         related_name='jugadores',
-        blank=True, null=True, 
+        **NULL, 
         on_delete=models.CASCADE
     )
 

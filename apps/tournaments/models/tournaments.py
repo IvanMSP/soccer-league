@@ -7,7 +7,6 @@ class Tournament(models.Model):
     teams = models.ManyToManyField(
         Team,
         related_name='teams',
-        blank=True, null=True
     )
     category = models.ForeignKey(
         Category, 

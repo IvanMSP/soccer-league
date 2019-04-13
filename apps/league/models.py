@@ -1,4 +1,8 @@
+#django core
 from django.db import models
+#reusable apps
+from reusable.constants import *
+
 
 
 class League(models.Model):
@@ -36,7 +40,7 @@ class Rules(models.Model):
         blank=True, null=True, 
         on_delete=models.CASCADE
     )
-    name = models.CharField(max_length=50, blank=True, null=True)
+    name = models.CharField(max_length=50, **NULL)
     file = models.FileField(upload_to='rules_file')
 
     class Meta:
@@ -50,13 +54,13 @@ class Rules(models.Model):
 class Stadium(models.Model):
     league_stadium = models.ForeignKey(
         League, 
-        blank=True, null=True, 
+        **NULL, 
         on_delete=models.CASCADE
     )
-    name = models.CharField(max_length=120, blank=True, null=True)
-    adress = models.CharField(max_length=120, blank=True, null=True)
-    longitud = models.FloatField(blank=True, null=True, default=None)
-    latitude = models.FloatField(blank=True, null=True, default=None)
+    name = models.CharField(max_length=120, **NULL)
+    adress = models.CharField(max_length=120, **NULL)
+    longitud = models.FloatField(**NULL, default=None)
+    latitude = models.FloatField(**NULL, default=None)
 
     class Meta:
         verbose_name = 'Campo'
