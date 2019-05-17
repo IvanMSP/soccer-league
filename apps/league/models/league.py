@@ -4,7 +4,6 @@ from django.db import models
 from reusable.constants import *
 
 
-
 class League(models.Model):
     name = models.CharField(max_length=100)
     adress = models.CharField(max_length=150)

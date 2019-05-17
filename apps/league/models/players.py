@@ -1,5 +1,5 @@
 from django.db import models
-from teams.models import Team
+from .teams import Team
 #reusable apps
 from reusable.constants import *
 

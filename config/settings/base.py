@@ -47,9 +47,6 @@ THIRDY_APPS = [
 
 OWNER_APPS = [
     'league.apps.LeagueConfig',
-    'players.apps.PlayersConfig',
-    'teams.apps.TeamsConfig',
-    'referee.apps.RefereeConfig',
     'tournaments.apps.TournamentsConfig',
     'accounts.apps.AccountsConfig',
     'reusable.apps.ReusableConfig',
@@ -89,7 +86,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
+AUTH_USER_MODEL = 'accounts.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
