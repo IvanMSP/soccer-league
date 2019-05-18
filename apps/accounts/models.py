@@ -6,7 +6,7 @@ from django.contrib.auth.models import AbstractUser
 from reusable.constants import *
 
 #Pambolero 
-from league.models import League
+from league.models import League, Team
 from .choices import GENDER_CHOICES
 
 
@@ -25,14 +25,32 @@ class User(AbstractUser):
         **NULL
     )
 
+    class Meta:
+        db_table = 'auth_user'
+        
 
 class AdminLeagueProfile(models.Model):
     user = models.OneToOneField(
-        User, 
-        on_delete=models.CASCADE, 
-        primary_key=True
+        User,
+        related_name="adminleagueprofile",
+        on_delete=models.CASCADE,         
     )
     league = models.OneToOneField(
         League, 
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return '{} - {}'.format(self.user.username, self.league.name)
+        
+
+class AdminTeamProfile(models.Model):
+    user = models.OneToOneField(
+        User,
+        related_name="adminteamprofile",
+        on_delete=models.CASCADE
+    )
+    team = models.OneToOneField(
+        Team,
         on_delete=models.CASCADE
     )
